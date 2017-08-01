@@ -1,5 +1,9 @@
 /* Eric Zorn: July 31, 2017 / AJAX and Voting for the President, Module 6: Homework 1 JS */
 
+var xmlHTTP = new xmlHTTPRequest(); //Establish Request
+var openHTTP = xmlHTTP.open("GET", "http://schwartzcomputer.com/ICT4570/Resources/USPresidents.json");
+
+
 function getId(id) {
     return document.getElementById(id);
 }
@@ -23,7 +27,7 @@ function getTagName(tag) {
 }
 
 tableCreate();
-*/
+
 
 function newTable() {
     "use strict";
@@ -43,4 +47,6 @@ function newTable() {
 }
 
 newTable();
+*/
+
 
