@@ -8,7 +8,7 @@ function getTagName(tag) {
     return document.getElementsByTagName(tag);
 }
 
-function tableCreate() {
+/*function tableCreate() {
     "use strict";
     var body, table, tableBody, c; //(cells)
 
@@ -23,3 +23,24 @@ function tableCreate() {
 }
 
 tableCreate();
+*/
+
+function newTable() {
+    "use strict";
+    var table = '';
+    var rows = 2;
+    var cols = 3;
+    
+    for (var r = 0; r < rows; r += 1) {
+        table += '<tr>';
+            for (var c = 0; c < cols; c +=1) {
+                table += '<td>' + c + '</td>';
+            }
+        table += '</tr>';
+    }
+    
+    document.write('<table>' + table + '</table>');
+}
+
+newTable();
+
