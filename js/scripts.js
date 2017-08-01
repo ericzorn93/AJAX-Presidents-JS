@@ -19,9 +19,7 @@ function tableCreate() {
     //Creates the cells
     for ( c = 0; c <=2; c += 1) {
         var row = document.createElement("tr");
-
-        for (var i = 0; i < 2; i += 1) {
-            var call = document
-        }
     }
 }
+
+tableCreate();

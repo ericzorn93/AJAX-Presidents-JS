@@ -1,8 +1,8 @@
 /* Eric Zorn: July 31, 2017 / AJAX and Voting for the President, Module 6: Homework 1 SCSS */
 
 //Variables
-$background-color: lightgreen;
-$text-color: white;
+$background-color: #FAF0E6;
+$text-color: #4169E1;
 $font-family: sans-serif;
 
 
@@ -10,4 +10,8 @@ body {
  background-color: $background-color;
  color: $text-color;
  font-family: $font-family;
+}
+
+.form-labels {
+ color: $text-color;
 }
