@@ -8,7 +8,8 @@ xmlHTTP.onreadystatechange = function() {
     "use strict";
     if (xmlHTTP.readyState === 4 && xmlHTTP.status === 200) {
         var dataJSON = xmlHTTP.responseText;
-        console.log(dataJSON);
+        // console.log(dataJSON);
+
         var tableInfoParse = JSON.parse(dataJSON);
 
         console.log(tableInfoParse);
@@ -17,14 +18,20 @@ xmlHTTP.onreadystatechange = function() {
         function createTable() {
             "use strict";
             var table = document.getElementById("presidentTable");
-            var row = table.insertRow();
-            var head = table.createTHead();
+            var thead = document.createElement('thead');
 
+            var presidents = tableInfoParse.presidents.president;
+            var i;
 
-            for (var i = 0; i < presidents.president.name.length; i += 1) {
-                
+            for (var i = 0; i < 3; i += 1) {
+                table.createTHead();
             }
 
+            for (i in presidents) {
+                console.log(presidents[i].name);
+            }
+
+            // console.log(presidents);
 
         }
 
