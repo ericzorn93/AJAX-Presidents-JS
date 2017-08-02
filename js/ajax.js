@@ -18,7 +18,6 @@ xmlHTTP.onreadystatechange = function() {
         function createTable() {
             "use strict";
             var table = document.getElementById("presidentTable");
-            var thead = document.createElement('thead');
             var rows = [
                 table.insertRow(),
                 table.insertRow(),
@@ -27,11 +26,13 @@ xmlHTTP.onreadystatechange = function() {
                 table.insertRow()
             ];
 
+            var tableNames = [];
+
             for (var i = 0; i < 6; i++) {
                 rows[i];
             }
 
-            rows[0].id = "name";
+            rows[0].id = "nameTable";
             rows[1].id = "date";
             rows[2].id = "left-office";
             rows[3].id = "party";
@@ -44,8 +45,13 @@ xmlHTTP.onreadystatechange = function() {
             for (i in presidents) {
                 console.log(presidents[i].name);
                 var presidentNames = presidents[i].name;
-                document.getElementById("name");
+                // var name = document.getElementById("nameTable");
+                tableNames.push(presidentNames);
+            }
 
+            for (var i = 0; i < tableNames.length; i+=1) {
+                table.createTHead();
+                document.getElementsByTagName('thead');
             }
 
         }
