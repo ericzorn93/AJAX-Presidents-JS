@@ -19,19 +19,34 @@ xmlHTTP.onreadystatechange = function() {
             "use strict";
             var table = document.getElementById("presidentTable");
             var thead = document.createElement('thead');
+            var rows = [
+                table.insertRow(),
+                table.insertRow(),
+                table.insertRow(),
+                table.insertRow(),
+                table.insertRow()
+            ];
+
+            for (var i = 0; i < 6; i++) {
+                rows[i];
+            }
+
+            rows[0].id = "name";
+            rows[1].id = "date";
+            rows[2].id = "left-office";
+            rows[3].id = "party";
+            rows[4].id = "took-office";
+
 
             var presidents = tableInfoParse.presidents.president;
             var i;
 
-            for (var i = 0; i < 3; i += 1) {
-                table.createTHead();
-            }
-
             for (i in presidents) {
                 console.log(presidents[i].name);
-            }
+                var presidentNames = presidents[i].name;
+                document.getElementById("name");
 
-            // console.log(presidents);
+            }
 
         }
 
