@@ -59,13 +59,14 @@ xmlHTTP.onreadystatechange = function() {
             var row = table.insertRow(0);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(0);
+            var cell3 = row.insertCell(0);
             var presidentNames = createTable;
             var i;
 
             for (i = 0; i < presidentNames().length; i++) {
                 cell1.innerHTML = presidentNames().length;
                 cell2.innerHTML = presidentNames().length;
-                cell2.innerHTML = presidentNames()[i];
+                cell3.innerHTML = presidentNames()[i];
             }
 
         }
