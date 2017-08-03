@@ -43,21 +43,39 @@ xmlHTTP.onreadystatechange = function() {
             var i;
 
             for (i in presidents) {
-                console.log(presidents[i].name);
+                // console.log(presidents[i].name);
                 var presidentNames = presidents[i].name;
-                // var name = document.getElementById("nameTable");
                 tableNames.push(presidentNames);
             }
 
-            for (var i = 0; i < tableNames.length; i+=1) {
-                table.createTHead();
-                document.getElementsByTagName('thead');
-            }
+            return tableNames;
 
         }
 
         createTable();
 
+        function createRows() {
+            var table = document.getElementById("presidentTable");
+            var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(0);
+            var presidentNames = createTable;
+            var i;
+
+            for (i = 0; i < presidentNames().length; i++) {
+                cell1.innerHTML = presidentNames().length;
+                cell2.innerHTML = presidentNames().length;
+                cell2.innerHTML = presidentNames()[i];
+            }
+
+        }
+
+        function clearForm() {
+            "use strict";
+            var table = document.getElementById("presidentTable");
+        }
+
+        document.getElementById("searchButton").addEventListener('click', createRows);
 
     }
 };
