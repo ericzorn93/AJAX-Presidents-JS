@@ -8,7 +8,7 @@ xmlHTTP.onreadystatechange = function() {
     "use strict";
     if (xmlHTTP.readyState === 4 && xmlHTTP.status === 200) {
         var dataJSON = xmlHTTP.responseText;
-        // console.log(dataJSON);
+        console.log(dataJSON); //Console Logging the JSON File
 
         var tableInfoParse = JSON.parse(dataJSON);
 
@@ -56,11 +56,10 @@ xmlHTTP.onreadystatechange = function() {
             var birthday;
             var tookOffice;
             var leftOffice;
-            // var headerNumber, headerName, headerBday, headerTOff, headerLOff;
             var i;
 
             var header = table.createTHead();
-            var row = header.insertRow(0);
+            row = header.insertRow(0);
             var cell = row.insertCell(0);
             cell.innerHTML = "<b>Number</b>";
 
@@ -102,7 +101,7 @@ xmlHTTP.onreadystatechange = function() {
 
         //Adding Styles
         function addStyles() {
-            var table = document.getElementById("presidentTable");
+            "use strict";
             var tableLength = document.getElementById("presidentTable").rows.length;
             var tableData = document.getElementsByTagName("td");
             console.log(tableLength);
