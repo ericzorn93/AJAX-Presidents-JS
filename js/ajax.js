@@ -15,29 +15,11 @@ xmlHTTP.onreadystatechange = function() {
         console.log(tableInfoParse);
 
 
-        function createTable() {
+        /*function createTable() {
             "use strict";
             var table = document.getElementById("presidentTable");
-            var rows = [
-                table.insertRow(),
-                table.insertRow(),
-                table.insertRow(),
-                table.insertRow(),
-                table.insertRow()
-            ];
 
             var tableNames = [];
-
-            for (var i = 0; i < 6; i++) {
-                rows[i];
-            }
-
-            rows[0].id = "nameTable";
-            rows[1].id = "date";
-            rows[2].id = "left-office";
-            rows[3].id = "party";
-            rows[4].id = "took-office";
-
 
             var presidents = tableInfoParse.presidents.president;
             var i;
@@ -53,20 +35,69 @@ xmlHTTP.onreadystatechange = function() {
         }
 
         createTable();
+        */
+        
+        function queryData() {
+            "use strict";
+            var presidents = tableInfoParse.presidents.president;
+            var input = document.getElementById('input');
+            var regex = new RegExp(input.value, "i");
+
+
+            return presidents.filter(function (president) {
+                console.log("President", president);
+                var presidentialTrait;
+               for (var trait in president) {
+
+                   presidentialTrait = president[trait];
+
+                   if (trait === "party" || trait === "term") {
+                       continue;
+                   }
+
+                   if (regex.test(presidentialTrait)) {
+                       return true;
+                   }
+
+               }
+
+               return false;
+            });
+        }
 
         function createRows() {
+            "use strict";
+            clearForm();
             var table = document.getElementById("presidentTable");
-            var row = table.insertRow(0);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(0);
-            var cell3 = row.insertCell(0);
-            var presidentNames = createTable;
+            var presidents = queryData();
+            var president;
+            var row;
+            var number;
+            var name;
+            var birthday;
+            var tookOffice;
+            var leftOffice;
             var i;
 
-            for (i = 0; i < presidentNames().length; i++) {
-                cell1.innerHTML = presidentNames().length;
-                cell2.innerHTML = presidentNames().length;
-                cell3.innerHTML = presidentNames()[i];
+
+            for (i = 0; i < presidents.length; i++) {
+                row = table.insertRow(i);
+                president = presidents[i];
+
+                number = row.insertCell();
+                number.appendChild(document.createTextNode(president.number));
+
+                name = row.insertCell();
+                name.appendChild(document.createTextNode(president.name));
+
+                birthday = row.insertCell();
+                birthday.appendChild(document.createTextNode(president.date));
+
+                tookOffice = row.insertCell();
+                tookOffice.appendChild(document.createTextNode(president.took_office));
+
+                leftOffice = row.insertCell();
+                leftOffice.appendChild(document.createTextNode(president.left_office));
             }
 
         }
@@ -74,9 +105,13 @@ xmlHTTP.onreadystatechange = function() {
         function clearForm() {
             "use strict";
             var table = document.getElementById("presidentTable");
+            table.innerHTML = " ";
         }
 
+
+        document.onload = createRows();
         document.getElementById("searchButton").addEventListener('click', createRows);
+        document.getElementById("clearButton").addEventListener('click', clearForm);
 
     }
 };
