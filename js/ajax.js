@@ -4,7 +4,7 @@
 //HTTP Requests and Sends
 var xmlHTTP = new XMLHttpRequest(); //Set up Request
 
-xmlHTTP.onreadystatechange = function() {
+xmlHTTP.onreadystatechange = function () {
     "use strict";
     if (xmlHTTP.readyState === 4 && xmlHTTP.status === 200) {
         var dataJSON = xmlHTTP.responseText;
@@ -25,21 +25,21 @@ xmlHTTP.onreadystatechange = function() {
             return presidents.filter(function (president) {
                 console.log("President", president);
                 var presidentialTrait;
-               for (var trait in president) {
+                for (var trait in president) {
 
-                   presidentialTrait = president[trait];
+                    presidentialTrait = president[trait];
 
-                   if (trait === "party" || trait === "term") {
-                       continue;
-                   }
+                    if (trait === "party" || trait === "term") {
+                        continue;
+                    }
 
-                   if (regex.test(presidentialTrait)) {
-                       return true;
-                   }
+                    if (regex.test(presidentialTrait)) {
+                        return true;
+                    }
 
-               }
+                }
 
-               return false;
+                return false;
             });
         }
 
@@ -58,10 +58,19 @@ xmlHTTP.onreadystatechange = function() {
             var leftOffice;
             var i;
 
-            var header = table.createTHead();
+            /*var header = table.createTHead();
             row = header.insertRow(0);
             var cell = row.insertCell(0);
+            var cell2 = row.insertCell(0);
+            var cell3 = row.insertCell(0);
+            var cell4 = row.insertCell(0);
+            var cell5 = row.insertCell(0);
+
+            cell3.innerHTML = "<b>Birthday</b>";
+            cell2.innerHTML = "<b>Name</b>";
             cell.innerHTML = "<b>Number</b>";
+            cell4.innerHTML = "<b>Entered Office</b>";
+            cell5.innerHTML = "<b>Left Office</b>"; */
 
             for (i = 0; i < presidents.length; i++) {
                 row = table.insertRow(i);
@@ -107,7 +116,7 @@ xmlHTTP.onreadystatechange = function() {
             console.log(tableLength);
 
 
-            for (var i = 0; i < tableData.length; i+=1) {
+            for (var i = 0; i < tableData.length; i += 1) {
                 tableData[i].className += "tableData";
                 tableData[i].style.borderColor += "green";
             }
@@ -127,19 +136,3 @@ xmlHTTP.onreadystatechange = function() {
 xmlHTTP.open("GET", "http://schwartzcomputer.com/ICT4570/Resources/USPresidents.json");
 // Perform the request
 xmlHTTP.send();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
