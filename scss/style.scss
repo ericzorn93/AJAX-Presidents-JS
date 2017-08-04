@@ -5,6 +5,7 @@ $background-color: #FAF0E6;
 $text-color: #4169E1;
 $font-family: sans-serif;
 $red-border: red;
+$white: white;
 
 
 body {
@@ -27,5 +28,6 @@ table {
 }
 
 td {
-  border: 1px dashed $text-color;
+  border: 3px dashed green;
 }
+

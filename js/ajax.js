@@ -14,29 +14,7 @@ xmlHTTP.onreadystatechange = function() {
 
         console.log(tableInfoParse);
 
-
-        /*function createTable() {
-            "use strict";
-            var table = document.getElementById("presidentTable");
-
-            var tableNames = [];
-
-            var presidents = tableInfoParse.presidents.president;
-            var i;
-
-            for (i in presidents) {
-                // console.log(presidents[i].name);
-                var presidentNames = presidents[i].name;
-                tableNames.push(presidentNames);
-            }
-
-            return tableNames;
-
-        }
-
-        createTable();
-        */
-        
+        //How to Query Data from AJAX JSON File
         function queryData() {
             "use strict";
             var presidents = tableInfoParse.presidents.president;
@@ -65,6 +43,7 @@ xmlHTTP.onreadystatechange = function() {
             });
         }
 
+        //Create Table Rows
         function createRows() {
             "use strict";
             clearForm();
@@ -77,11 +56,17 @@ xmlHTTP.onreadystatechange = function() {
             var birthday;
             var tookOffice;
             var leftOffice;
+            // var headerNumber, headerName, headerBday, headerTOff, headerLOff;
             var i;
 
+            var header = table.createTHead();
+            var row = header.insertRow(0);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<b>Number</b>";
 
             for (i = 0; i < presidents.length; i++) {
                 row = table.insertRow(i);
+
                 president = presidents[i];
 
                 number = row.insertCell();
@@ -102,6 +87,7 @@ xmlHTTP.onreadystatechange = function() {
 
         }
 
+        //Clear Form Properly
         function clearForm() {
             "use strict";
             var table = document.getElementById("presidentTable");
@@ -114,20 +100,19 @@ xmlHTTP.onreadystatechange = function() {
         document.getElementById("clearButton").addEventListener('click', clearForm);
 
 
-        //Styles
+        //Adding Styles
         function addStyles() {
             var table = document.getElementById("presidentTable");
             var tableLength = document.getElementById("presidentTable").rows.length;
-            var tableRows = document.getElementsByTagName("tr");
+            var tableData = document.getElementsByTagName("td");
             console.log(tableLength);
 
 
-            for (var i = 0; i < tableRows.length; i+=1) {
-                table.rows[i].className += "tableRows";
+            for (var i = 0; i < tableData.length; i+=1) {
+                tableData[i].className += "tableData";
+                tableData[i].style.borderColor += "green";
             }
 
-            var tableRowStyles = document.getElementsByClassName("tableRows");
-            tableRowStyles.style.borderStyle = "solid";
         }
 
         document.body.onload = addStyles();
