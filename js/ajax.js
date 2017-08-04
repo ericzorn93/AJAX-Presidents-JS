@@ -113,7 +113,27 @@ xmlHTTP.onreadystatechange = function() {
         document.getElementById("searchButton").addEventListener('click', createRows);
         document.getElementById("clearButton").addEventListener('click', clearForm);
 
+
+        //Styles
+        function addStyles() {
+            var table = document.getElementById("presidentTable");
+            var tableLength = document.getElementById("presidentTable").rows.length;
+            var tableRows = document.getElementsByTagName("tr");
+            console.log(tableLength);
+
+
+            for (var i = 0; i < tableRows.length; i+=1) {
+                table.rows[i].className += "tableRows";
+            }
+
+            var tableRowStyles = document.getElementsByClassName("tableRows");
+            tableRowStyles.style.borderStyle = "solid";
+        }
+
+        document.body.onload = addStyles();
+
     }
+
 };
 
 

@@ -4,6 +4,7 @@
 $background-color: #FAF0E6;
 $text-color: #4169E1;
 $font-family: sans-serif;
+$red-border: red;
 
 
 body {
@@ -19,4 +20,12 @@ body {
 .tableHead {
     border: 1px solid black;
     color: $text-color;
+}
+
+table {
+ border: 3px dashed $red-border;
+}
+
+td {
+  border: 1px dashed $text-color;
 }
