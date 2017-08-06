@@ -12,14 +12,17 @@ body {
  background-color: $background-color;
  color: $text-color;
  font-family: $font-family;
+ font-weight: 700;
 }
 
 table {
- border: 3px dashed $red-border;
+    background-color: lightgoldenrodyellow;
+    margin-left: 30px;
+    width: 1800px;
 }
 
 td {
-  border: 2px dashed green;
+  border: 1px solid green;
 }
 
 

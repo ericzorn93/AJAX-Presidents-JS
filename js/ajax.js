@@ -58,19 +58,6 @@ xmlHTTP.onreadystatechange = function () {
             var leftOffice;
             var i;
 
-            /*var header = table.createTHead();
-            row = header.insertRow(0);
-            var cell = row.insertCell(0);
-            var cell2 = row.insertCell(0);
-            var cell3 = row.insertCell(0);
-            var cell4 = row.insertCell(0);
-            var cell5 = row.insertCell(0);
-
-            cell3.innerHTML = "<b>Birthday</b>";
-            cell2.innerHTML = "<b>Name</b>";
-            cell.innerHTML = "<b>Number</b>";
-            cell4.innerHTML = "<b>Entered Office</b>";
-            cell5.innerHTML = "<b>Left Office</b>"; */
 
             for (i = 0; i < presidents.length; i++) {
                 row = table.insertRow(i);
@@ -98,15 +85,11 @@ xmlHTTP.onreadystatechange = function () {
         //Clear Form Properly
         function clearForm() {
             "use strict";
+            var input = document.getElementById('input');
             var table = document.getElementById("presidentTable");
             table.innerHTML = " ";
+            // input.value = " ";
         }
-
-
-        document.onload = createRows();
-        document.getElementById("searchButton").addEventListener('click', createRows);
-        document.getElementById("clearButton").addEventListener('click', clearForm);
-
 
         //Adding Styles
         function addStyles() {
@@ -123,13 +106,20 @@ xmlHTTP.onreadystatechange = function () {
 
         }
 
-        document.body.onload = addStyles();
+        function init() {
+            "use strict";
+            document.onload = createRows();
+            document.getElementById("searchButton").addEventListener('click', createRows);
+            document.getElementById("clearButton").addEventListener('click', clearForm);
+            document.body.onload = addStyles();
+        }
+
+        window.onload = init();
+
 
     }
 
 };
-
-
 
 
 // Set up the request
