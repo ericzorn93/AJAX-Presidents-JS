@@ -112,6 +112,7 @@ xmlHTTP.onreadystatechange = function () {
             document.getElementById("searchButton").addEventListener('click', createRows);
             document.getElementById("clearButton").addEventListener('click', clearForm);
             document.body.onload = addStyles();
+            document.getElementById("dateAsOf").value = tableInfoParse.presidents.date;
         }
 
         window.onload = init();
