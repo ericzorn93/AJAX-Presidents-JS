@@ -91,7 +91,7 @@ xmlHTTP.onreadystatechange = function () {
             var input = document.getElementById('input');
             var table = document.getElementById("presidentTable");
             table.innerHTML = " ";
-            // input.value = " ";
+            //input.value = "";
         }
 
         //Adding Styles
