@@ -1,4 +1,4 @@
-/* Eric Zorn: July 31, 2017 / AJAX and Voting for the President, Module 6: Homework 1 JS */
+/* Eric Zorn: July 31, 2017 / AJAX and Voting for the President, Module 8: Homework 1 JS */
 
 
 //HTTP Requests and Sends
