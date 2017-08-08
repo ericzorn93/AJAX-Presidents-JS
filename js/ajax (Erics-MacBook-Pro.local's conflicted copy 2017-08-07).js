@@ -58,6 +58,8 @@ xmlHTTP.onreadystatechange = function () {
             var birthday;
             var tookOffice;
             var leftOffice;
+            var vicePresNames;
+            var vicePres;
             var i;
 
 
@@ -65,6 +67,7 @@ xmlHTTP.onreadystatechange = function () {
                 row = table.insertRow(i);
 
                 president = presidents[i];
+                vicePresNames = president.term;
 
                 number = row.insertCell();
                 number.appendChild(document.createTextNode(president.number));
@@ -81,6 +84,8 @@ xmlHTTP.onreadystatechange = function () {
                 leftOffice = row.insertCell();
                 leftOffice.appendChild(document.createTextNode(president.left_office));
                 
+                vicePres = row.insertCell();
+                vicePres.appendChild(document.createTextNode(vicePresNames.vice_president && vicePresNames.vice_president.));
             }
 
         }
@@ -113,12 +118,6 @@ xmlHTTP.onreadystatechange = function () {
             "use strict";
             document.onload = createRows();
             document.getElementById("searchButton").addEventListener('click', createRows);
-            document.addEventListener('keypress', function (event) {
-                if (event.keyCode === 13 || event.which === 13) {
-                    createRows();
-                    event.preventDefault();
-                }
-            });
             document.getElementById("clearButton").addEventListener('click', clearForm);
             document.body.onload = addStyles();
             document.getElementById("dateAsOf").value = tableInfoParse.presidents.date;
