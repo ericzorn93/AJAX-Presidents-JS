@@ -26,10 +26,8 @@ xmlHTTP.onreadystatechange = function () {
 
             return presidents.filter(function (president) {
                 console.log("President", president);
-                var presidentialTrait;
                 for (var trait in president) {
-
-                    presidentialTrait = president[trait];
+                    const presidentialTrait = president[trait];
 
                     if (trait === "party" || trait === "term") {
                         continue;
@@ -114,7 +112,7 @@ xmlHTTP.onreadystatechange = function () {
             document.onload = createRows();
             document.getElementById("searchButton").addEventListener('click', createRows);
             document.addEventListener('keypress', function (event) {
-                if (event.keyCode === 13 || event.which === 13) {
+                if (event.keyCode === 13 || event.which === 13 || event.key === 'Enter') {
                     createRows();
                     event.preventDefault();
                 }
@@ -125,10 +123,7 @@ xmlHTTP.onreadystatechange = function () {
         }
 
         window.onload = init();
-
-
     }
-
 };
 
 
